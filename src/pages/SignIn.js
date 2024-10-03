@@ -1,22 +1,19 @@
-// src/app/components/SignIn.js
-
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { FaGoogle } from 'react-icons/fa';
 import Link from 'next/link';
 
 export default function SignIn() {
-  const [role, setRole] = useState(''); // State to store selected role
+  const [role, setRole] = useState('');
   const router = useRouter();
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Check the selected role and redirect accordingly
     if (role === 'doctor') {
-      router.push('/doctor-dashboard'); // Redirect to doctor dashboard
+      router.push('/doctor-dashboard');
     } else if (role === 'patient') {
-      router.push('/patient-dashboard'); // Redirect to patient dashboard
+      router.push('/patient-dashboard');
     } else {
       alert('Please select a role before logging in.');
     }
@@ -72,7 +69,6 @@ export default function SignIn() {
               </div>
             </div>
 
-            {/* Role Selection */}
             <div className='mb-4'>
               <label className='block text-sm font-medium text-gray-700'>
                 Select Your Role

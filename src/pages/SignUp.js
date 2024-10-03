@@ -1,22 +1,19 @@
-// src/app/components/SignUp.js
-
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { FaGoogle } from 'react-icons/fa';
 import Link from 'next/link';
 
 export default function SignUp() {
-  const [role, setRole] = useState(''); // State to store selected role
+  const [role, setRole] = useState('');
   const router = useRouter();
 
   const handleSignUp = (e) => {
     e.preventDefault();
 
-    // Check the selected role and redirect accordingly
     if (role === 'doctor') {
-      router.push('/doctor-dashboard'); // Redirect to doctor dashboard
+      router.push('/doctor-dashboard');
     } else if (role === 'patient') {
-      router.push('/patient-dashboard'); // Redirect to patient dashboard
+      router.push('/patient-dashboard');
     } else {
       alert('Please select a role before signing up.');
     }
@@ -31,8 +28,8 @@ export default function SignUp() {
         }}
       ></div>
 
-      <div className='flex flex-col justify-center items-center w-full md:w-1/2 bg-white p-8'>
-        <div className='w-full max-w-md'>
+      <div className='flex flex-col justify-center items-center w-full md:w-1/2 bg-white p-6'>
+        <div className='w-full max-w-sm'>
           <h2 className='text-2xl font-bold text-center text-gray-800'>
             Buat akun di <span className='text-blue-600'>SymptoSense!</span>
           </h2>
@@ -49,7 +46,7 @@ export default function SignUp() {
               <input
                 type='text'
                 placeholder='Enter your name'
-                className='mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600'
+                className='mt-1 w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600'
               />
             </div>
 
@@ -60,7 +57,7 @@ export default function SignUp() {
               <input
                 type='email'
                 placeholder='Enter your email'
-                className='mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600'
+                className='mt-1 w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600'
               />
             </div>
 
@@ -72,12 +69,11 @@ export default function SignUp() {
                 <input
                   type='password'
                   placeholder='Enter your password'
-                  className='mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600'
+                  className='mt-1 w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600'
                 />
               </div>
             </div>
 
-            {/* Role Selection */}
             <div className='mb-4'>
               <label className='block text-sm font-medium text-gray-700'>
                 Select Your Role
@@ -85,7 +81,7 @@ export default function SignUp() {
               <select
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
-                className='mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600'
+                className='mt-1 w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600'
               >
                 <option value=''>Choose a role</option>
                 <option value='doctor'>Doctor</option>
@@ -93,14 +89,14 @@ export default function SignUp() {
               </select>
             </div>
 
-            <button className='w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition'>
+            <button className='w-full bg-blue-600 text-white p-2 rounded-lg font-semibold hover:bg-blue-700 transition'>
               Daftar
             </button>
           </form>
 
           <div className='my-6 text-center text-gray-600'>or</div>
 
-          <button className='w-full bg-white border border-gray-300 text-gray-600 p-3 rounded-lg flex items-center justify-center space-x-2 hover:bg-gray-100 transition'>
+          <button className='w-full bg-white border border-gray-300 text-gray-600 p-2 rounded-lg flex items-center justify-center space-x-2 hover:bg-gray-100 transition'>
             <FaGoogle className='text-xl' />
             <span>Continue with Google</span>
           </button>
