@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
 import '../app/globals.css';
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  const router = useRouter();
+
+  const getTitle = () => {
+    const { pathname } = router;
+
+    if (pathname === '/SignIn') {
+      return 'Sign In';
+    } else if (pathname === '/SignUp') {
+      return 'Sign Up';
+    } else if (pathname === '/doctor-dashboard') {
+      return 'Dashboard - Doctor';
+    } else if (pathname === '/patient-dashboard') {
+      return 'Dashboard - Patient';
+    }
+    return 'SymptoSense';
+  };
+
+  return (
+    <>
+      <Head>
+        <title>{getTitle()}</title>
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 export default MyApp;

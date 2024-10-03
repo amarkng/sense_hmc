@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { FaGoogle } from 'react-icons/fa';
 import Link from 'next/link';
+import Head from 'next/head';
 
 export default function SignIn() {
   const [role, setRole] = useState('');
