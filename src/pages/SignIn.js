@@ -11,9 +11,15 @@ export default function SignIn() {
     e.preventDefault();
 
     if (role === 'doctor') {
-      router.push('/doctor-dashboard');
+      router.push({
+        pathname: '/doctor-dashboard',
+        query: { role: 'doctor' },
+      });
     } else if (role === 'patient') {
-      router.push('/patient-dashboard');
+      router.push({
+        pathname: '/patient-dashboard',
+        query: { role: 'patient' },
+      });
     } else {
       alert('Please select a role before logging in.');
     }
@@ -60,12 +66,12 @@ export default function SignIn() {
                   placeholder='Enter your password'
                   className='mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600'
                 />
-                <a
+                <Link
                   href='#'
                   className='absolute inset-y-0 right-0 pr-3 flex items-center text-sm text-gray-500'
                 >
                   Forgot?
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -89,12 +95,12 @@ export default function SignIn() {
             </button>
           </form>
 
-          <div className='my-6 text-center text-gray-600'>or</div>
+          {/* <div className='my-6 text-center text-gray-600'>or</div>
 
           <button className='w-full bg-white border border-gray-300 text-gray-600 p-3 rounded-lg flex items-center justify-center space-x-2 hover:bg-gray-100 transition'>
             <FaGoogle className='text-xl' />
             <span>Continue with Google</span>
-          </button>
+          </button> */}
 
           <p className='mt-6 text-center text-gray-600'>
             Want to create an account?{' '}

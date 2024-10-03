@@ -5,18 +5,32 @@ import Link from 'next/link';
 
 export default function SignUp() {
   const [role, setRole] = useState('');
+  const [selectedFile, setSelectedFile] = useState(null); // State untuk menyimpan file yang diunggah
   const router = useRouter();
 
   const handleSignUp = (e) => {
     e.preventDefault();
 
-    if (role === 'doctor') {
-      router.push('/doctor-dashboard');
-    } else if (role === 'patient') {
-      router.push('/patient-dashboard');
-    } else {
+    if (!role) {
       alert('Please select a role before signing up.');
+      return;
     }
+
+    if (role === 'doctor') {
+      router.push({
+        pathname: '/doctor-dashboard',
+        query: { role: 'doctor' },
+      });
+    } else if (role === 'patient') {
+      router.push({
+        pathname: '/patient-dashboard',
+        query: { role: 'patient' },
+      });
+    }
+  };
+
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
   };
 
   return (
@@ -29,7 +43,7 @@ export default function SignUp() {
       ></div>
 
       <div className='flex flex-col justify-center items-center w-full md:w-1/2 bg-white p-6'>
-        <div className='w-full max-w-sm'>
+        <div className='w-full max-w-md'>
           <h2 className='text-2xl font-bold text-center text-gray-800'>
             Buat akun di <span className='text-blue-600'>SymptoSense!</span>
           </h2>
@@ -89,17 +103,48 @@ export default function SignUp() {
               </select>
             </div>
 
+            {/* Conditional File Upload */}
+            {role === 'doctor' && (
+              <div className='mb-4'>
+                <label className='block text-sm font-medium text-gray-700'>
+                  Upload STR (Surat Tanda Registrasi)
+                </label>
+                <input
+                  type='file'
+                  accept='image/*'
+                  onChange={handleFileChange}
+                  required
+                  className='mt-1 w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:bg-blue-600 file:text-white hover:file:bg-blue-700'
+                />
+              </div>
+            )}
+
+            {role === 'patient' && (
+              <div className='mb-4'>
+                <label className='block text-sm font-medium text-gray-700'>
+                  Upload KTP
+                </label>
+                <input
+                  type='file'
+                  accept='image/*'
+                  onChange={handleFileChange}
+                  required
+                  className='mt-1 w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:bg-blue-600 file:text-white hover:file:bg-blue-700'
+                />
+              </div>
+            )}
+
             <button className='w-full bg-blue-600 text-white p-2 rounded-lg font-semibold hover:bg-blue-700 transition'>
               Daftar
             </button>
           </form>
 
-          <div className='my-6 text-center text-gray-600'>or</div>
+          {/* <div className='my-6 text-center text-gray-600'>or</div>
 
           <button className='w-full bg-white border border-gray-300 text-gray-600 p-2 rounded-lg flex items-center justify-center space-x-2 hover:bg-gray-100 transition'>
             <FaGoogle className='text-xl' />
             <span>Continue with Google</span>
-          </button>
+          </button> */}
 
           <p className='mt-6 text-center text-gray-600'>
             Already Have An Account?{' '}

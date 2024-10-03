@@ -4,7 +4,7 @@ export default function Article() {
   const articles = [
     {
       id: 1,
-      title: 'The Golden Sands Of Florida And California',
+      title: 'Healthy Eating: Tips and Tricks For A Balanced Diet',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed et donec purus viverra.',
       category: 'Health',
@@ -13,8 +13,8 @@ export default function Article() {
     },
     {
       id: 2,
-      title: 'Exploring The Wonders Of The Sahara Desert',
-      description: 'Nullam quis risus eget urna mollis ornare vel eu leo.',
+      title: 'Healthy Eating: Tips and Tricks For A Balanced Diet',
+      description: 'lorem euismod dolor nec pretium. Nunc ut tristique massa.',
       category: 'Travel',
       date: '15 Februari 2024',
       imageUrl: '/images/article2.jpg',
@@ -22,7 +22,7 @@ export default function Article() {
     {
       id: 3,
       title: 'Healthy Eating: Tips and Tricks For A Balanced Diet',
-      description: 'Curabitur blandit tempus porttitor. Donec sed odio dui.',
+      description: 'lorem euismod dolor nec pretium. Nunc ut tristique massa.',
       category: 'Health',
       date: '10 Januari 2024',
       imageUrl: '/images/article3.jpg',
@@ -55,31 +55,40 @@ export default function Article() {
   ];
 
   return (
-    <section className='bg-[#1A2B49] py-16 px-6'>
-      <div className='max-w-7xl mx-auto'>
-        <h2 className='text-4xl font-bold text-white mb-8 text-center'>
+    <section className='relative bg-blue-500 py-16 px-6 overflow-hidden'>
+      {/* Lingkaran hitam di ujung kiri dan kanan */}
+      <div className='absolute top-0 left-[-100px] w-80 h-80 bg-black rounded-full opacity-20'></div>
+      <div className='absolute bottom-0 right-[-100px] w-80 h-80 bg-black rounded-full opacity-20'></div>
+
+      <div className='max-w-7xl mx-auto relative z-10'>
+        <h2 className='text-5xl font-bold text-white mb-8 text-center'>
           Artikel Terbaru
         </h2>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
           {/* {articles.map((article) => ( */}
           {articles.slice(0, 3).map((article) => (
             <div
               key={article.id}
-              className='bg-[#2C3E5B] rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow'
+              className='bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow'
             >
-              <div
-                className='h-48 bg-cover bg-center'
-                style={{ backgroundImage: `url(${article.imageUrl})` }}
-              ></div>
-              <div className='p-6 text-white'>
-                <h3 className='text-lg font-semibold'>{article.title}</h3>
-                <p className='text-sm mt-2'>{article.description}</p>
+              <img
+                src={article.imageUrl}
+                alt={article.title}
+                className='h-48 w-full object-cover'
+              />
+              <div className='p-6'>
+                <h3 className='text-lg font-semibold text-gray-900'>
+                  {article.title}
+                </h3>
+                <p className='text-sm text-gray-700 mt-2'>
+                  {article.description}
+                </p>
                 <div className='flex justify-between items-center mt-4'>
-                  <span className='bg-gray-700 text-xs px-3 py-1 rounded-full'>
+                  <span className='bg-blue-500 text-white text-xs px-3 py-1 rounded-full'>
                     {article.category}
                   </span>
-                  <span className='text-sm'>{article.date}</span>
+                  <span className='text-sm text-gray-500'>{article.date}</span>
                 </div>
               </div>
             </div>
@@ -87,7 +96,7 @@ export default function Article() {
         </div>
 
         <div className='flex justify-center mt-10'>
-          <button className='bg-blue-600 text-white py-3 px-6 rounded-full text-lg'>
+          <button className='bg-gray-800 text-white py-3 px-8 rounded-full text-lg'>
             Read More
           </button>
         </div>
