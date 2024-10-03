@@ -101,9 +101,9 @@ export default function SignIn() {
 
           <p className='mt-6 text-center text-gray-600'>
             Want to create an account?{' '}
-            <a href='/SignUp' className='text-blue-600'>
+            <Link href='/SignUp' className='text-blue-600'>
               Register
-            </a>
+            </Link>
           </p>
         </div>
       </div>

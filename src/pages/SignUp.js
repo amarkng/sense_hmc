@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { FaGoogle } from 'react-icons/fa';
+import Link from 'next/link';
 
 export default function SignUp() {
   const [role, setRole] = useState(''); // State to store selected role
@@ -106,9 +107,9 @@ export default function SignUp() {
 
           <p className='mt-6 text-center text-gray-600'>
             Already Have An Account?{' '}
-            <a href='/SignIn' className='text-blue-600'>
+            <Link href='/SignIn' className='text-blue-600'>
               Log In
-            </a>
+            </Link>
           </p>
         </div>
       </div>
