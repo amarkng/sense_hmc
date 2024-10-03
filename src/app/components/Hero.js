@@ -1,5 +1,7 @@
 // src/app/components/Hero.js
 
+import Link from 'next/link';
+
 export default function Hero() {
   return (
     <section className='relative flex flex-col items-center justify-center text-center min-h-screen bg-white'>
@@ -21,7 +23,9 @@ export default function Hero() {
         proaktif.
       </p>
       <button className='mt-8 bg-blue-600 text-white py-3 px-6 rounded-full text-lg relative z-10 flex items-center'>
-        Mulai <span className='ml-2'>→</span>
+        <Link href='SignIn' className='flex items-center'>
+          Mulai <span className='ml-2'>→</span>
+        </Link>
       </button>
     </section>
   );
