@@ -9,9 +9,9 @@ export default function Navbar() {
     <nav className='bg-white shadow-md py-4'>
       <div className='container mx-auto px-6 md:px-12 flex items-center justify-between'>
         {/* Brand Name */}
-        <div className='text-2xl font-bold font-sans text-blue-600'>
+        <Link href='/' className='text-2xl font-bold font-sans text-blue-600'>
           Symptosense
-        </div>
+        </Link>
 
         {/* Navigation Links for Desktop */}
         <div className='hidden md:flex space-x-8'>
