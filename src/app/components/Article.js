@@ -9,15 +9,15 @@ export default function Article() {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed et donec purus viverra.',
       category: 'Health',
       date: '20 Maret 2024',
-      imageUrl: '/images/article1.jpg',
+      imageUrl: '/assets/images/placeholder1.jpg',
     },
     {
       id: 2,
       title: 'Healthy Eating: Tips and Tricks For A Balanced Diet',
       description: 'lorem euismod dolor nec pretium. Nunc ut tristique massa.',
-      category: 'Travel',
+      category: 'Health',
       date: '15 Februari 2024',
-      imageUrl: '/images/article2.jpg',
+      imageUrl: '/assets/images/placeholder1.jpg',
     },
     {
       id: 3,
@@ -25,7 +25,7 @@ export default function Article() {
       description: 'lorem euismod dolor nec pretium. Nunc ut tristique massa.',
       category: 'Health',
       date: '10 Januari 2024',
-      imageUrl: '/images/article3.jpg',
+      imageUrl: '/assets/images/placeholder1.jpg',
     },
     {
       id: 4,
@@ -42,7 +42,7 @@ export default function Article() {
       description: 'Aenean lacinia bibendum nulla sed consectetur.',
       category: 'Environment',
       date: '5 November 2023',
-      imageUrl: '/images/article5.jpg',
+      imageUrl: '/images/article6.jpg',
     },
     {
       id: 5,
@@ -50,7 +50,7 @@ export default function Article() {
       description: 'Aenean lacinia bibendum nulla sed consectetur.',
       category: 'Environment',
       date: '5 November 2023',
-      imageUrl: '/images/article5.jpg',
+      imageUrl: '/images/article7.jpg',
     },
   ];
 

@@ -8,6 +8,7 @@ import {
   FaFileAlt,
   FaCog,
   FaSignOutAlt,
+  FaArrowLeft,
 } from 'react-icons/fa';
 
 export default function DashboardDokter() {
@@ -79,6 +80,18 @@ export default function DashboardDokter() {
               Pengaturan
             </span>
           </Link>
+
+          <div className='mt-4'>
+            <Link href='/' className='flex items-center p-4 hover:bg-gray-100'>
+              <FaArrowLeft className='text-blue-600' />
+              <span
+                className={`${isSidebarOpen ? 'ml-4' : 'hidden'} text-gray-800`}
+              >
+                Homepage
+              </span>
+            </Link>
+          </div>
+
           <Link href='#' className='flex items-center p-4 hover:bg-gray-100'>
             <FaSignOutAlt className='text-blue-600' />
             <span
