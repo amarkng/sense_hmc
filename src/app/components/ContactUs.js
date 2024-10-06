@@ -1,12 +1,15 @@
+import Image from 'next/image';
 export default function ContactUs() {
   return (
     <section className='bg-white py-16'>
       <div className='max-w-5xl mx-auto p-4 lg:p-8 flex flex-col lg:flex-row items-center'>
         <div className='flex justify-center lg:w-1/2 mb-8 lg:mb-0'>
-          <img
+          <Image
             src='/assets/images/contact.png'
             alt='Contact Us'
             className='w-48 h-auto sm:w-64 lg:w-full '
+            width={1024}
+            height={576}
           />
         </div>
 

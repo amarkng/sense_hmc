@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import {
   FaSignOutAlt,
   FaCog,
@@ -33,10 +34,12 @@ export default function NavbarDoc({ toggleSidebar, isSidebarOpen }) {
 
       <div className='flex justify-between items-center bg-white p-4 rounded-lg mb-8'>
         <div className='flex items-center'>
-          <img
-            src='/path-to-doctor-image.jpg'
+          <Image
+            src='/assets/images/placeholder2.png'
             alt='Doctor Profile'
             className='w-16 h-16 rounded-full mr-4'
+            width={64}
+            height={64}
           />
           <div>
             <p className='text-gray-600 text-sm'>Halo Dokter,</p>
@@ -45,7 +48,7 @@ export default function NavbarDoc({ toggleSidebar, isSidebarOpen }) {
         </div>
 
         <div className='relative'>
-          <FaBell className='text-3xl text-gray-700' />
+          <FaBell className='text-xl text-gray-700' />
           <span className='absolute top-0 right-0 block h-2 w-2 rounded-full bg-orange-500'></span>
         </div>
       </div>

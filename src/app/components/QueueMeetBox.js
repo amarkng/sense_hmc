@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import Image from 'next/image';
 const generateRandomName = () => {
   const firstNames = ['John', 'Jane', 'Alex', 'Emily'];
   const lastNames = ['Smith', 'Johnson', 'Williams', 'Brown'];
@@ -58,10 +58,12 @@ export default function QueueMeetBox() {
         <ul className='mt-4 space-y-4 min-h-[320px]'>
           {currentPatients.map((patient, index) => (
             <li key={index} className='flex items-center space-x-4'>
-              <img
-                src={`/path-to-avatar-${index}.png`}
+              <Image
+                src='/assets/images/placeholder4.jpg'
                 alt={patient.name}
                 className='w-10 h-10 rounded-full'
+                width={40}
+                height={40}
               />
               <div>
                 <h3 className='text-gray-900 font-semibold'>{patient.name}</h3>

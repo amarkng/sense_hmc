@@ -5,7 +5,7 @@ export default function ObatVitamin() {
   const items = [
     {
       name: 'Batuk',
-      image: '/path-to-your-image/batuk.png', // Replace with actual images
+      image: '/assets/images/placeholder3.png',
       details: {
         penjelasan:
           'Batuk adalah refleks untuk membersihkan saluran pernapasan.',
@@ -15,7 +15,7 @@ export default function ObatVitamin() {
     },
     {
       name: 'Flu',
-      image: '/path-to-your-image/flu.png',
+      image: '/assets/images/placeholder3.png',
       details: {
         penjelasan:
           'Flu adalah infeksi virus yang menyerang sistem pernapasan.',
@@ -25,7 +25,7 @@ export default function ObatVitamin() {
     },
     {
       name: 'Diare',
-      image: '/path-to-your-image/diare.png',
+      image: '/assets/images/placeholder3.png',
       details: {
         penjelasan: 'Diare adalah buang air besar dengan tinja yang encer.',
         penyebab: 'Infeksi bakteri, virus, makanan yang terkontaminasi.',
@@ -34,7 +34,7 @@ export default function ObatVitamin() {
     },
     {
       name: 'Cacar',
-      image: '/path-to-your-image/cacar.png',
+      image: '/assets/images/placeholder3.png',
       details: {
         penjelasan: 'Cacar adalah infeksi virus yang menyebabkan ruam kulit.',
         penyebab: 'Virus varicella-zoster.',

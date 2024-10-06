@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaVideo } from 'react-icons/fa';
+import Image from 'next/image';
 
 const generateDummyData = (numPatients) => {
   const names = [
@@ -89,10 +90,12 @@ export default function HistoryDiagnosis() {
                 </td>
                 <td className='px-4 py-2 text-black'>
                   <div className='flex items-center'>
-                    <img
-                      src={`https://via.placeholder.com/40`}
+                    <Image
+                      src='/assets/images/placeholder1.jpg'
                       alt='avatar'
                       className='w-10 h-10 rounded-full'
+                      width={64}
+                      height={64}
                     />
                     <div className='ml-3'>
                       <p className='text-sm font-medium'>{entry.name}</p>

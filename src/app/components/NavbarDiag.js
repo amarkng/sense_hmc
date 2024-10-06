@@ -1,6 +1,4 @@
-// src/app/components/Navbar.js
 import { useState } from 'react';
-import { useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Navbar() {
@@ -16,21 +14,30 @@ export default function Navbar() {
 
         {/* Navigation Links for Desktop */}
         <div className='hidden md:flex space-x-8'>
-          <a href='/' className='text-gray-800 hover:text-blue-600 transition'>
+          <Link
+            href='/'
+            className='text-gray-800 hover:text-blue-600 transition'
+          >
             Tentang Kami
-          </a>
-          <a href='/' className='text-gray-800 hover:text-blue-600 transition'>
+          </Link>
+          <Link
+            href='/'
+            className='text-gray-800 hover:text-blue-600 transition'
+          >
             Artikel
-          </a>
-          <a href='/' className='text-gray-800 hover:text-blue-600 transition'>
+          </Link>
+          <Link
+            href='/'
+            className='text-gray-800 hover:text-blue-600 transition'
+          >
             Obat & Vitamin
-          </a>
-          <a
+          </Link>
+          <Link
             href='/Diagnosis'
             className='text-gray-800 hover:text-blue-600 transition'
           >
             Diagnosis
-          </a>
+          </Link>
         </div>
 
         {/* Buttons */}
@@ -64,30 +71,30 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className='md:hidden bg-white px-6 py-4'>
-          <a
+          <Link
             href='/'
             className='block text-gray-800 py-2 hover:text-blue-600 transition'
           >
             Tentang Kami
-          </a>
-          <a
+          </Link>
+          <Link
             href='/'
             className='block text-gray-800 py-2 hover:text-blue-600 transition'
           >
             Artikel
-          </a>
-          <a
+          </Link>
+          <Link
             href='/'
             className='block text-gray-800 py-2 hover:text-blue-600 transition'
           >
             Obat & Vitamin
-          </a>
-          <a
+          </Link>
+          <Link
             href='/Diagnosis'
             className='block text-gray-800 py-2 hover:text-blue-600 transition'
           >
             Diagnosis
-          </a>
+          </Link>
 
           {/* Register Button - Link to SignUp Page */}
           <Link href='/SignUp'>

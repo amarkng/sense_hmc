@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import {
   FaSignOutAlt,
   FaCog,
@@ -32,10 +33,12 @@ export default function NavbarPatient({ toggleSidebar, isSidebarOpen }) {
 
       <div className='flex justify-between items-center bg-white p-4 rounded-lg mb-8'>
         <div className='flex items-center'>
-          <img
-            src='/path-to-patient-image.jpg'
+          <Image
+            src='/assets/images/placeholder1.jpg'
             alt='Patient Profile'
             className='w-16 h-16 rounded-full mr-4'
+            width={64}
+            height={64}
           />
           <div>
             <p className='text-gray-600 text-sm'>Halo Pasien,</p>

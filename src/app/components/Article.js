@@ -1,5 +1,4 @@
-// src/app/components/Article.js
-
+import Image from 'next/image';
 export default function Article() {
   const articles = [
     {
@@ -64,21 +63,26 @@ export default function Article() {
           Artikel Terbaru
         </h2>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
+        {/* Responsive grid layout */}
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8'>
           {articles.slice(0, 3).map((article) => (
             <div
               key={article.id}
               className='bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow'
             >
-              <img
+              <Image
                 src={article.imageUrl}
                 alt={article.title}
-                className='h-48 w-full object-cover'
+                className='object-cover'
+                width={1024}
+                height={576}
+                layout='responsive'
               />
-              <div className='p-6'>
-                <h3 className='text-lg sm:text-xl font-semibold text-gray-900'>
+              <div className='p-4 sm:p-6'>
+                <h3 className='text-base sm:text-lg md:text-xl font-semibold text-gray-900'>
                   {article.title}
                 </h3>
+
                 <p className='text-sm sm:text-base text-gray-700 mt-2'>
                   {article.description}
                 </p>
