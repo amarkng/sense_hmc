@@ -40,7 +40,7 @@ export default function Diagnosis() {
 
           <div className='bg-gray-50 p-8 rounded-lg shadow-sm'>
             {/* Search Input */}
-            <div className='flex justify-between items-center mb-6'>
+            <div className='flex justify-center items-center mb-6'>
               <input
                 type='text'
                 placeholder='Cari Gejala (Tekan Enter)'
