@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import '../app/globals.css';
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({ weight: ['400', '600'], subsets: ['latin'] });
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -22,12 +25,12 @@ function MyApp({ Component, pageProps }) {
   };
 
   return (
-    <>
+    <main className={poppins.className}>
       <Head>
         <title>{getTitle()}</title>
       </Head>
       <Component {...pageProps} />
-    </>
+    </main>
   );
 }
 

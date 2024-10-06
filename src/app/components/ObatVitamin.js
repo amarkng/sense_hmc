@@ -4,17 +4,8 @@ import { useState } from 'react';
 export default function ObatVitamin() {
   const items = [
     {
-      name: 'Gatal',
-      icon: '🤚',
-      details: {
-        penjelasan: 'Gatal adalah kondisi dimana kulit terasa ingin digaruk.',
-        penyebab: 'Alergi, infeksi kulit, atau gigitan serangga.',
-        obat: 'Antihistamin, lotion pelembab, salep antijamur.',
-      },
-    },
-    {
       name: 'Batuk',
-      icon: '🗣️',
+      image: '/path-to-your-image/batuk.png', // Replace with actual images
       details: {
         penjelasan:
           'Batuk adalah refleks untuk membersihkan saluran pernapasan.',
@@ -23,21 +14,31 @@ export default function ObatVitamin() {
       },
     },
     {
-      name: 'Pencernaan',
-      icon: '🦠',
+      name: 'Flu',
+      image: '/path-to-your-image/flu.png',
       details: {
-        penjelasan: 'Masalah pencernaan seperti diare, sembelit, atau kembung.',
-        penyebab: 'Makanan pedas, stres, infeksi bakteri.',
-        obat: 'Probiotik, antasida, diet makanan berserat.',
+        penjelasan:
+          'Flu adalah infeksi virus yang menyerang sistem pernapasan.',
+        penyebab: 'Virus influenza.',
+        obat: 'Obat flu, banyak istirahat, minum air putih.',
       },
     },
     {
-      name: 'Pusing',
-      icon: '🤯',
+      name: 'Diare',
+      image: '/path-to-your-image/diare.png',
       details: {
-        penjelasan: 'Pusing adalah sensasi kepala berputar atau ringan.',
-        penyebab: 'Dehidrasi, anemia, tekanan darah rendah.',
-        obat: 'Minum air putih, obat anti vertigo, istirahat yang cukup.',
+        penjelasan: 'Diare adalah buang air besar dengan tinja yang encer.',
+        penyebab: 'Infeksi bakteri, virus, makanan yang terkontaminasi.',
+        obat: 'Obat diare, oralit, minum banyak cairan.',
+      },
+    },
+    {
+      name: 'Cacar',
+      image: '/path-to-your-image/cacar.png',
+      details: {
+        penjelasan: 'Cacar adalah infeksi virus yang menyebabkan ruam kulit.',
+        penyebab: 'Virus varicella-zoster.',
+        obat: 'Obat antivirus, obat pereda gatal, istirahat.',
       },
     },
   ];
@@ -45,21 +46,25 @@ export default function ObatVitamin() {
   const [selectedItem, setSelectedItem] = useState(null);
 
   return (
-    <div className='bg-blue-50 py-16 px-6'>
-      <div className='max-w-7xl mx-auto'>
-        <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center'>
-          Obat & Vitamin (temporary)
+    <div className='bg-white py-16'>
+      <div className='max-w-7xl mx-auto px-4 text-center'>
+        <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-8'>
+          Obat & Vitamin
         </h2>
 
         {/* Grid Layout */}
-        <div className='grid grid-cols-2 md:grid-cols-4 gap-8'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8'>
           {items.map((item, index) => (
             <div
               key={index}
               onClick={() => setSelectedItem(item)}
-              className='flex flex-col items-center bg-white p-6 rounded-lg shadow-md hover:bg-blue-100 hover:shadow-lg transition cursor-pointer'
+              className='flex flex-col items-center bg-white p-4 sm:p-6 rounded-lg shadow-md hover:bg-gray-100 hover:shadow-lg transition cursor-pointer'
             >
-              <div className='text-5xl'>{item.icon}</div>
+              <img
+                src={item.image}
+                alt={item.name}
+                className='h-20 w-20 sm:h-24 sm:w-24 object-cover rounded-full'
+              />
               <p className='text-lg font-semibold text-gray-800 mt-4'>
                 {item.name}
               </p>
@@ -70,7 +75,7 @@ export default function ObatVitamin() {
         {/* Modal Pop-up */}
         {selectedItem && (
           <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 py-8 overflow-y-auto'>
-            <div className='bg-white rounded-lg shadow-lg w-[90vw] max-w-[500px] p-6 mx-auto'>
+            <div className='bg-white rounded-lg shadow-lg w-full max-w-[500px] p-6 mx-auto'>
               <h3 className='text-2xl font-bold text-gray-900 mb-4'>
                 {selectedItem.name}
               </h3>

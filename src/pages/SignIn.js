@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Head from 'next/head';
 
 export default function SignIn() {
   const [role, setRole] = useState('');
+  const [passwordVisible, setPasswordVisible] = useState(false); // State untuk visibilitas password
   const router = useRouter();
 
   const handleLogin = (e) => {
@@ -52,7 +52,7 @@ export default function SignIn() {
               <input
                 type='email'
                 placeholder='Enter your email'
-                className='mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600'
+                className='mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-black'
               />
             </div>
 
@@ -62,16 +62,17 @@ export default function SignIn() {
               </label>
               <div className='relative'>
                 <input
-                  type='password'
+                  type={passwordVisible ? 'text' : 'password'} // Kondisi untuk menampilkan atau menyembunyikan password
                   placeholder='Enter your password'
-                  className='mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600'
+                  className='mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-black'
                 />
-                <Link
-                  href='#'
+                <button
+                  type='button'
+                  onClick={() => setPasswordVisible(!passwordVisible)} // Ganti visibilitas password
                   className='absolute inset-y-0 right-0 pr-3 flex items-center text-sm text-gray-500'
                 >
-                  Forgot?
-                </Link>
+                  {passwordVisible ? 'Hide' : 'Show'}
+                </button>
               </div>
             </div>
 
@@ -82,7 +83,7 @@ export default function SignIn() {
               <select
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
-                className='mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600'
+                className='mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-black'
               >
                 <option value=''>Choose a role</option>
                 <option value='doctor'>Doctor</option>
@@ -94,13 +95,6 @@ export default function SignIn() {
               Masuk
             </button>
           </form>
-
-          {/* <div className='my-6 text-center text-gray-600'>or</div>
-
-          <button className='w-full bg-white border border-gray-300 text-gray-600 p-3 rounded-lg flex items-center justify-center space-x-2 hover:bg-gray-100 transition'>
-            <FaGoogle className='text-xl' />
-            <span>Continue with Google</span>
-          </button> */}
 
           <p className='mt-6 text-center text-gray-600'>
             Want to create an account?{' '}

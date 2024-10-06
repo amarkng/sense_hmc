@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { FaGoogle } from 'react-icons/fa';
 import Link from 'next/link';
 
 export default function SignUp() {
   const [role, setRole] = useState('');
-  const [selectedFile, setSelectedFile] = useState(null); // State untuk menyimpan file yang diunggah
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [passwordVisible, setPasswordVisible] = useState(false); // State untuk hide/unhide password
   const router = useRouter();
 
   const handleSignUp = (e) => {
@@ -60,7 +60,7 @@ export default function SignUp() {
               <input
                 type='text'
                 placeholder='Enter your name'
-                className='mt-1 w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600'
+                className='mt-1 w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-black' // Text hitam
               />
             </div>
 
@@ -71,7 +71,7 @@ export default function SignUp() {
               <input
                 type='email'
                 placeholder='Enter your email'
-                className='mt-1 w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600'
+                className='mt-1 w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-black' // Text hitam
               />
             </div>
 
@@ -81,10 +81,17 @@ export default function SignUp() {
               </label>
               <div className='relative'>
                 <input
-                  type='password'
+                  type={passwordVisible ? 'text' : 'password'} // Hide/Unhide password
                   placeholder='Enter your password'
-                  className='mt-1 w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600'
+                  className='mt-1 w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-black' // Text hitam
                 />
+                <button
+                  type='button'
+                  onClick={() => setPasswordVisible(!passwordVisible)} // Tombol untuk hide/unhide
+                  className='absolute inset-y-0 right-0 pr-3 flex items-center text-sm text-gray-500'
+                >
+                  {passwordVisible ? 'Hide' : 'Show'}
+                </button>
               </div>
             </div>
 
@@ -95,7 +102,7 @@ export default function SignUp() {
               <select
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
-                className='mt-1 w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600'
+                className='mt-1 w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-black' // Text hitam
               >
                 <option value=''>Choose a role</option>
                 <option value='doctor'>Doctor</option>
@@ -138,13 +145,6 @@ export default function SignUp() {
               Daftar
             </button>
           </form>
-
-          {/* <div className='my-6 text-center text-gray-600'>or</div>
-
-          <button className='w-full bg-white border border-gray-300 text-gray-600 p-2 rounded-lg flex items-center justify-center space-x-2 hover:bg-gray-100 transition'>
-            <FaGoogle className='text-xl' />
-            <span>Continue with Google</span>
-          </button> */}
 
           <p className='mt-6 text-center text-gray-600'>
             Already Have An Account?{' '}

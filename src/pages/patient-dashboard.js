@@ -1,50 +1,39 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { FaBars } from 'react-icons/fa';
+import NavbarPatient from '../app/components/NavbarPatient';
+import UpperBoxPatient from '../app/components/UpperBoxPatient';
+import HistoryDiagnosis from '../app/components/HistoryDiagnosis';
 
-export default function DashboardPasien() {
-  const router = useRouter();
-  const [userName, setUserName] = useState('Pasien');
+export default function PatientDashboard() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  useEffect(() => {
-    // Contoh penggunaan router query untuk role pasien
-    const role = router.query.role;
-    if (role !== 'patient') {
-      router.push('/signin');
-    }
-
-    // Set nama pengguna jika ada
-    setUserName('Pasien');
-  }, [router]);
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   return (
-    <div className='min-h-screen bg-gray-100'>
-      {/* Navbar */}
-      <nav className='bg-blue-600 p-4'>
-        <div className='max-w-7xl mx-auto flex justify-between'>
-          <div className='text-white text-xl font-bold'>SymptoSense</div>
-          <div>
-            <a href='#' className='text-white hover:underline'>
-              Logout
-            </a>
-          </div>
+    <div className='flex min-h-screen'>
+      <NavbarPatient
+        toggleSidebar={toggleSidebar}
+        isSidebarOpen={isSidebarOpen}
+      />
+
+      <div
+        className={`flex-1 p-6 bg-gray-50 transition-all duration-300 ${
+          isSidebarOpen ? 'ml-64' : 'ml-0'
+        }`}
+      >
+        <div className='md:hidden flex justify-between items-center mb-6'>
+          <h1 className='text-2xl font-bold text-blue-600'>SymptoSense</h1>
+          <button onClick={toggleSidebar}>
+            <FaBars className='text-2xl text-gray-700' />
+          </button>
         </div>
-      </nav>
 
-      {/* Konten Dashboard */}
-      <div className='max-w-7xl mx-auto p-6'>
-        <h1 className='text-3xl font-bold text-gray-800 mb-6'>
-          Halo, {userName}!
-        </h1>
+        <UpperBoxPatient />
 
-        <div className='bg-white rounded-lg shadow p-6'>
-          <h2 className='text-2xl font-semibold text-gray-900 mb-4'>
-            Riwayat Konsultasi
-          </h2>
-          <ul className='list-disc list-inside space-y-2'>
-            <li>10 Maret 2024 - Konsultasi Batuk - Dr. Ananda</li>
-            <li>5 April 2024 - Pemeriksaan Rutin - Dr. Budi</li>
-            <li>20 April 2024 - Konsultasi Demam - Dr. Clara</li>
-          </ul>
+        <div className='grid grid-cols-1 gap-6'>
+          <HistoryDiagnosis />
         </div>
       </div>
     </div>

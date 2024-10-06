@@ -56,17 +56,15 @@ export default function Article() {
 
   return (
     <section className='relative bg-blue-500 py-16 px-6 overflow-hidden'>
-      {/* Lingkaran hitam di ujung kiri dan kanan */}
       <div className='absolute top-0 left-[-100px] w-80 h-80 bg-black rounded-full opacity-20'></div>
       <div className='absolute bottom-0 right-[-100px] w-80 h-80 bg-black rounded-full opacity-20'></div>
 
       <div className='max-w-7xl mx-auto relative z-10'>
-        <h2 className='text-5xl font-bold text-white mb-8 text-center'>
+        <h2 className='text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 text-center'>
           Artikel Terbaru
         </h2>
 
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {/* {articles.map((article) => ( */}
           {articles.slice(0, 3).map((article) => (
             <div
               key={article.id}
@@ -78,17 +76,19 @@ export default function Article() {
                 className='h-48 w-full object-cover'
               />
               <div className='p-6'>
-                <h3 className='text-lg font-semibold text-gray-900'>
+                <h3 className='text-lg sm:text-xl font-semibold text-gray-900'>
                   {article.title}
                 </h3>
-                <p className='text-sm text-gray-700 mt-2'>
+                <p className='text-sm sm:text-base text-gray-700 mt-2'>
                   {article.description}
                 </p>
                 <div className='flex justify-between items-center mt-4'>
-                  <span className='bg-blue-500 text-white text-xs px-3 py-1 rounded-full'>
+                  <span className='bg-blue-500 text-white text-xs sm:text-sm px-3 py-1 rounded-full'>
                     {article.category}
                   </span>
-                  <span className='text-sm text-gray-500'>{article.date}</span>
+                  <span className='text-xs sm:text-sm text-gray-500'>
+                    {article.date}
+                  </span>
                 </div>
               </div>
             </div>
@@ -96,7 +96,7 @@ export default function Article() {
         </div>
 
         <div className='flex justify-center mt-10'>
-          <button className='bg-gray-800 text-white py-3 px-8 rounded-full text-lg'>
+          <button className='bg-gray-800 text-white py-3 px-8 rounded-full text-sm sm:text-lg hover:bg-gray-900'>
             Read More
           </button>
         </div>

@@ -16,22 +16,13 @@ export default function Navbar() {
 
         {/* Navigation Links for Desktop */}
         <div className='hidden md:flex space-x-8'>
-          <a
-            href='#about'
-            className='text-gray-800 hover:text-blue-600 transition'
-          >
+          <a href='/' className='text-gray-800 hover:text-blue-600 transition'>
             Tentang Kami
           </a>
-          <a
-            href='#artikel'
-            className='text-gray-800 hover:text-blue-600 transition'
-          >
+          <a href='/' className='text-gray-800 hover:text-blue-600 transition'>
             Artikel
           </a>
-          <a
-            href='#obat'
-            className='text-gray-800 hover:text-blue-600 transition'
-          >
+          <a href='/' className='text-gray-800 hover:text-blue-600 transition'>
             Obat & Vitamin
           </a>
           <a
@@ -74,19 +65,19 @@ export default function Navbar() {
       {isOpen && (
         <div className='md:hidden bg-white px-6 py-4'>
           <a
-            href='#about'
+            href='/'
             className='block text-gray-800 py-2 hover:text-blue-600 transition'
           >
             Tentang Kami
           </a>
           <a
-            href='#artikel'
+            href='/'
             className='block text-gray-800 py-2 hover:text-blue-600 transition'
           >
             Artikel
           </a>
           <a
-            href='#obat'
+            href='/'
             className='block text-gray-800 py-2 hover:text-blue-600 transition'
           >
             Obat & Vitamin
