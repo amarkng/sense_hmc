@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import NavbarDiag from '../app/components/NavbarDiag'; // Assuming you already have Navbar component
-import Footer from '../app/components/Footer'; // Assuming you already have Footer component
+import NavbarDiag from '../app/components/NavbarDiag';
+import Footer from '../app/components/Footer';
 
 export default function Diagnosis() {
   const [symptoms, setSymptoms] = useState([
@@ -28,10 +28,8 @@ export default function Diagnosis() {
 
   return (
     <div>
-      {/* Navbar */}
       <NavbarDiag />
 
-      {/* Diagnosis Section */}
       <section className='py-16 bg-white text-center'>
         <div className='max-w-4xl mx-auto px-4 lg:px-0'>
           <h1 className='text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-8'>
@@ -39,7 +37,6 @@ export default function Diagnosis() {
           </h1>
 
           <div className='bg-gray-50 p-8 rounded-lg shadow-sm'>
-            {/* Search Input */}
             <div className='flex justify-center items-center mb-6'>
               <input
                 type='text'
@@ -63,7 +60,6 @@ export default function Diagnosis() {
                 </div>
               ))}
 
-              {/* Add Symptom Button */}
               <div
                 onClick={handleAddSymptom}
                 className='border border-blue-400 text-blue-400 px-6 py-2 rounded-full cursor-pointer hover:bg-blue-100 transition'
@@ -72,7 +68,6 @@ export default function Diagnosis() {
               </div>
             </div>
 
-            {/* View Results Button */}
             <button className='bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition'>
               Lihat Hasil Gejala
             </button>
@@ -80,7 +75,6 @@ export default function Diagnosis() {
         </div>
       </section>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

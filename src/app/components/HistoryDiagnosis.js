@@ -124,7 +124,7 @@ export default function HistoryDiagnosis() {
         </table>
       </div>
 
-      {/* Pagination Controls */}
+      {/* Pagination */}
       <div className='flex justify-between items-center'>
         <button
           onClick={handlePreviousPage}

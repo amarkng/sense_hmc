@@ -1,11 +1,9 @@
-// src/app/components/Footer.js
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 export default function Footer() {
   return (
     <footer className='bg-[#1D2B44] text-white py-10'>
       <div className='container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8'>
-        {/* Symptosense Section */}
         <div>
           <h3 className='text-2xl sm:text-3xl font-semibold'>Symptosense</h3>
           <p className='mt-4 text-sm sm:text-base text-gray-300'>
@@ -40,7 +38,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Quick Links Section */}
         <div>
           <h3 className='text-xl sm:text-2xl font-semibold'>Quick Links</h3>
           <ul className='mt-4 space-y-2 text-sm sm:text-base text-gray-300'>
@@ -67,7 +64,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Contact Us Section */}
         <div>
           <h3 className='text-xl sm:text-2xl font-semibold'>Contact Us</h3>
           <ul className='mt-4 space-y-2 text-sm sm:text-base text-gray-300'>

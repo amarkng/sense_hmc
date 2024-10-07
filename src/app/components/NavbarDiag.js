@@ -7,12 +7,10 @@ export default function Navbar() {
   return (
     <nav className='bg-white shadow-md py-4'>
       <div className='container mx-auto px-6 md:px-12 flex items-center justify-between'>
-        {/* Brand Name */}
         <Link href='/' className='text-2xl font-bold font-sans text-blue-600'>
           Symptosense
         </Link>
 
-        {/* Navigation Links for Desktop */}
         <div className='hidden md:flex space-x-8'>
           <Link
             href='/'
@@ -40,16 +38,13 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Buttons */}
         <div className='hidden md:flex space-x-4'>
-          {/* Register Button - Link to SignUp Page */}
           <Link href='/SignUp'>
             <button className='px-4 py-2 border-2 border-blue-600 text-blue-600 font-semibold rounded-md hover:bg-blue-600 hover:text-white transition'>
               Registrasi
             </button>
           </Link>
 
-          {/* SignIn Button - Link to SignIn Page */}
           <Link href='/SignIn'>
             <button className='px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition'>
               Masuk
@@ -57,7 +52,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile */}
         <div className='md:hidden'>
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -68,7 +63,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className='md:hidden bg-white px-6 py-4'>
           <Link
@@ -96,14 +90,12 @@ export default function Navbar() {
             Diagnosis
           </Link>
 
-          {/* Register Button - Link to SignUp Page */}
           <Link href='/SignUp'>
             <button className='w-full mt-4 px-4 py-2 border-2 border-blue-600 text-blue-600 font-semibold rounded-md hover:bg-blue-600 hover:text-white transition'>
               Registrasi
             </button>
           </Link>
 
-          {/* SignIn Button - Link to SignIn Page */}
           <Link href='/SignIn'>
             <button className='w-full mt-2 px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition'>
               Masuk

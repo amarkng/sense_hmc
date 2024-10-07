@@ -1,11 +1,11 @@
 import React from 'react';
-import { FaUser } from 'react-icons/fa'; // Import ikon pasien
+import { FaUser } from 'react-icons/fa';
 
 export default function PatientBox() {
   return (
     <div className='bg-blue-600 text-white p-6 rounded-lg shadow-lg flex items-center'>
       <div className='mr-4'>
-        <FaUser className='text-4xl' /> {/* Ikon pasien */}
+        <FaUser className='text-4xl' />
       </div>
       <div>
         <h2 className='text-xl font-bold'>Pasien</h2>

@@ -1,5 +1,3 @@
-// src/app/components/Hero.js
-
 import Link from 'next/link';
 
 export default function Hero() {

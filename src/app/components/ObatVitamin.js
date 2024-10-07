@@ -1,4 +1,3 @@
-// src/app/components/ObatVitamin.js
 import { useState } from 'react';
 
 export default function ObatVitamin() {

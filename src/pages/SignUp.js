@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function SignUp() {
   const [role, setRole] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
-  const [passwordVisible, setPasswordVisible] = useState(false); // State untuk hide/unhide password
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const router = useRouter();
 
   const handleSignUp = (e) => {
@@ -81,13 +81,13 @@ export default function SignUp() {
               </label>
               <div className='relative'>
                 <input
-                  type={passwordVisible ? 'text' : 'password'} // Hide/Unhide password
+                  type={passwordVisible ? 'text' : 'password'}
                   placeholder='Enter your password'
                   className='mt-1 w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-black' // Text hitam
                 />
                 <button
                   type='button'
-                  onClick={() => setPasswordVisible(!passwordVisible)} // Tombol untuk hide/unhide
+                  onClick={() => setPasswordVisible(!passwordVisible)}
                   className='absolute inset-y-0 right-0 pr-3 flex items-center text-sm text-gray-500'
                 >
                   {passwordVisible ? 'Hide' : 'Show'}
@@ -110,7 +110,6 @@ export default function SignUp() {
               </select>
             </div>
 
-            {/* Conditional File Upload */}
             {role === 'doctor' && (
               <div className='mb-4'>
                 <label className='block text-sm font-medium text-gray-700'>

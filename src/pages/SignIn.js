@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function SignIn() {
   const [role, setRole] = useState('');
-  const [passwordVisible, setPasswordVisible] = useState(false); // State untuk visibilitas password
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const router = useRouter();
 
   const handleLogin = (e) => {
@@ -62,13 +62,13 @@ export default function SignIn() {
               </label>
               <div className='relative'>
                 <input
-                  type={passwordVisible ? 'text' : 'password'} // Kondisi untuk menampilkan atau menyembunyikan password
+                  type={passwordVisible ? 'text' : 'password'}
                   placeholder='Enter your password'
                   className='mt-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-black'
                 />
                 <button
                   type='button'
-                  onClick={() => setPasswordVisible(!passwordVisible)} // Ganti visibilitas password
+                  onClick={() => setPasswordVisible(!passwordVisible)}
                   className='absolute inset-y-0 right-0 pr-3 flex items-center text-sm text-gray-500'
                 >
                   {passwordVisible ? 'Hide' : 'Show'}

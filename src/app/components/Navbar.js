@@ -52,7 +52,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile */}
         <div className='md:hidden'>
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -63,7 +63,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className='md:hidden bg-white px-6 py-4'>
           <Link
