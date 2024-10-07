@@ -48,7 +48,6 @@ export default function Diagnosis() {
               />
             </div>
 
-            {/* Display Symptoms */}
             <div className='flex flex-wrap justify-center gap-4 mb-6'>
               {symptoms.map((symptom, index) => (
                 <div

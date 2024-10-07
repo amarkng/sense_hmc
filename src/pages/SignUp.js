@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function SignUp() {
   const [role, setRole] = useState('');
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [, setSelectedFile] = useState(null);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const router = useRouter();
 

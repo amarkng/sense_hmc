@@ -51,7 +51,6 @@ export default function ObatVitamin() {
           Obat & Vitamin
         </h2>
 
-        {/* Grid Layout */}
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8'>
           {items.map((item, index) => (
             <div
@@ -71,7 +70,6 @@ export default function ObatVitamin() {
           ))}
         </div>
 
-        {/* Modal Pop-up */}
         {selectedItem && (
           <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 py-8 overflow-y-auto'>
             <div className='bg-white rounded-lg shadow-lg w-full max-w-[500px] p-6 mx-auto'>
