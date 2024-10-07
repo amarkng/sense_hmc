@@ -1,6 +1,5 @@
 'use client';
 
-import { Poppins } from 'next/font/google';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Article from './components/Article';
@@ -11,18 +10,14 @@ import ContactUs from './components/ContactUs';
 export default function Home() {
   return (
     <div>
-      {/* Navbar */}
       <Navbar />
 
-      {/* Hero Section */}
       <Hero />
 
-      {/* Artikel Terbaru Section */}
       <section id='artikel'>
         <Article />
       </section>
 
-      {/* Obat & Vitamin Section */}
       <section id='obat'>
         <ObatVitamin />
       </section>
@@ -31,7 +26,6 @@ export default function Home() {
         <ContactUs />
       </section>
 
-      {/* Footer */}
       <section id='about'>
         <Footer />
       </section>
