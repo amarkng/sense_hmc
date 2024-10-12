@@ -13,8 +13,13 @@ import {
 export default function NavbarPatient({ toggleSidebar, isSidebarOpen }) {
   const router = useRouter();
 
+  const isActive = (path) => router.pathname === path;
   const handleLogout = () => {
     router.push('/');
+  };
+
+  const navigateToSettings = () => {
+    router.push('/patient-setting');
   };
 
   return (
@@ -22,7 +27,7 @@ export default function NavbarPatient({ toggleSidebar, isSidebarOpen }) {
       className={`fixed inset-y-0 left-0 transform ${
         isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
       } md:relative md:translate-x-0 transition-transform duration-300 ease-in-out bg-white w-64 p-4 shadow-lg flex flex-col z-50`}
-      style={{ maxHeight: '110vh', overflowY: 'auto' }}
+      style={{ maxHeight: '200vh', overflowY: 'auto' }}
     >
       <div className='flex items-center justify-between mb-8'>
         <h1 className='text-2xl font-bold text-blue-600'>SymptoSense</h1>
@@ -42,7 +47,7 @@ export default function NavbarPatient({ toggleSidebar, isSidebarOpen }) {
           />
           <div>
             <p className='text-gray-600 text-sm'>Halo Pasien,</p>
-            <p className='font-bold text-lg text-black'>Emma Watson</p>
+            <p className='font-bold text-lg text-black'>Lala Aisyah</p>
           </div>
         </div>
 
@@ -52,14 +57,37 @@ export default function NavbarPatient({ toggleSidebar, isSidebarOpen }) {
         </div>
       </div>
 
-      <nav className='flex flex-col space-y-4 flex-1'>
-        <MenuLink Icon={FaHome} label='Beranda' />
-        <MenuLink Icon={FaCommentMedical} label='Konsultasi' />
-        <MenuLink Icon={FaFileAlt} label='Keluhan' />
+      <nav className='flex flex-col space-y-2 flex-1'>
+        <MenuLink
+          Icon={FaHome}
+          label='Beranda'
+          href='/patient-dashboard'
+          isActive={isActive('/patient-dashboard')}
+        />
+        <MenuLink
+          Icon={FaCommentMedical}
+          label='Konsultasi'
+          href='#Konsultasi'
+          isActive={isActive('/Konsultasi')}
+        />
+        <MenuLink
+          Icon={FaFileAlt}
+          label='Keluhan'
+          href='#Keluhan'
+          isActive={isActive('/Keluhan')}
+        />
       </nav>
 
       <div className='mt-auto space-y-4'>
-        <MenuLink Icon={FaCog} label='Pengaturan' />
+        <div
+          onClick={navigateToSettings}
+          className={`flex items-center p-4 hover:bg-gray-100 rounded-md text-gray-800 cursor-pointer ${
+            isActive('/patient-setting') ? 'shadow-lg bg-gray-100' : ''
+          }`}
+        >
+          <FaCog className='text-blue-600' />
+          <span className='ml-4'>Pengaturan</span>
+        </div>
         <button
           onClick={handleLogout}
           className='flex items-center text-red-600 w-full hover:bg-gray-100 p-4 rounded-md'
@@ -71,11 +99,15 @@ export default function NavbarPatient({ toggleSidebar, isSidebarOpen }) {
   );
 }
 
-function MenuLink({ Icon, label }) {
+function MenuLink({ Icon, label, href, isActive }) {
+  const router = useRouter();
+
   return (
     <a
-      href='#'
-      className='flex items-center p-4 hover:bg-gray-100 rounded-md text-gray-800'
+      onClick={() => router.push(href)}
+      className={`flex items-center p-4 hover:bg-gray-100 rounded-md text-gray-800 cursor-pointer ${
+        isActive ? 'shadow-lg bg-gray-100' : ''
+      }`}
     >
       <Icon className='text-blue-600' />
       <span className='ml-4'>{label}</span>

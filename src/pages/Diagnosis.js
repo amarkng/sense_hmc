@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import NavbarDiag from '../app/components/NavbarDiag';
+import Navbar from '../app/components/Navbar';
 import Footer from '../app/components/Footer';
 
 export default function Diagnosis() {
@@ -28,7 +28,7 @@ export default function Diagnosis() {
 
   return (
     <div>
-      <NavbarDiag />
+      <Navbar />
 
       <section className='py-16 bg-white text-center'>
         <div className='max-w-4xl mx-auto px-4 lg:px-0'>

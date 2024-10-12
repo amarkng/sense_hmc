@@ -69,7 +69,7 @@ export default function Footer() {
           <ul className='mt-4 space-y-2 text-sm sm:text-base text-gray-300'>
             <li className='flex items-center space-x-2'>
               <span>📧</span>
-              <span>symptosense@gmail.com</span>
+              <span>humic@telkomuniversity.ac.id</span>
             </li>
             <li className='flex items-start space-x-2'>
               <span>📍</span>

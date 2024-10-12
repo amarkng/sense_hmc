@@ -12,10 +12,14 @@ import {
 } from 'react-icons/fa';
 
 export default function NavbarDoc({ toggleSidebar, isSidebarOpen }) {
-  const router = useRouter();
-
+  const router = useRouter(); // Pastikan useRouter digunakan di sini
+  const isActive = (path) => router.pathname === path;
   const handleLogout = () => {
     router.push('/');
+  };
+
+  const navigateToSettings = () => {
+    router.push('/doctor-setting'); // Pastikan rute sesuai dengan file di pages
   };
 
   return (
@@ -23,7 +27,7 @@ export default function NavbarDoc({ toggleSidebar, isSidebarOpen }) {
       className={`fixed inset-y-0 left-0 transform ${
         isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
       } md:relative md:translate-x-0 transition-transform duration-300 ease-in-out bg-white w-64 p-4 shadow-lg flex flex-col z-50`}
-      style={{ maxHeight: '100vh', overflowY: 'auto' }}
+      style={{ maxHeight: '200vh', overflowX: 'auto' }}
     >
       <div className='flex items-center justify-between mb-8'>
         <h1 className='text-2xl font-bold text-blue-600'>SymptoSense</h1>
@@ -43,7 +47,7 @@ export default function NavbarDoc({ toggleSidebar, isSidebarOpen }) {
           />
           <div>
             <p className='text-gray-600 text-sm'>Halo Dokter,</p>
-            <p className='font-bold text-lg text-black'>Asep Julian</p>
+            <p className='font-bold text-lg text-black'>Arman Maul</p>
           </div>
         </div>
 
@@ -54,14 +58,42 @@ export default function NavbarDoc({ toggleSidebar, isSidebarOpen }) {
       </div>
 
       <nav className='flex flex-col space-y-2 flex-1'>
-        <MenuLink Icon={FaHome} label='Beranda' />
-        <MenuLink Icon={FaStethoscope} label='Verifikasi Diagnosis' />
-        <MenuLink Icon={FaCommentMedical} label='Konsultasi' />
-        <MenuLink Icon={FaFileAlt} label='Keluhan' />
+        <MenuLink
+          Icon={FaHome}
+          label='Beranda'
+          href='/doctor-dashboard'
+          isActive={isActive('/doctor-dashboard')}
+        />
+        <MenuLink
+          Icon={FaStethoscope}
+          label='Verifikasi Diagnosis'
+          href='#verifikasi'
+          isActive={isActive('/verifikasi')}
+        />
+        <MenuLink
+          Icon={FaCommentMedical}
+          label='Konsultasi'
+          href='#konsultasi'
+          isActive={isActive('/konsultasi')}
+        />
+        <MenuLink
+          Icon={FaFileAlt}
+          label='Keluhan'
+          href='#keluhan'
+          isActive={isActive('/keluhan')}
+        />
       </nav>
 
       <div className='mt-auto space-y-4'>
-        <MenuLink Icon={FaCog} label='Pengaturan' />
+        <div
+          onClick={navigateToSettings}
+          className={`flex items-center p-4 hover:bg-gray-100 rounded-md text-gray-800 cursor-pointer ${
+            isActive('/doctor-setting') ? 'shadow-lg bg-gray-100' : ''
+          }`}
+        >
+          <FaCog className='text-blue-600' />
+          <span className='ml-4'>Pengaturan</span>
+        </div>
         <button
           onClick={handleLogout}
           className='flex items-center text-red-600 w-full hover:bg-gray-100 p-4 rounded-md'
@@ -73,11 +105,15 @@ export default function NavbarDoc({ toggleSidebar, isSidebarOpen }) {
   );
 }
 
-function MenuLink({ Icon, label }) {
+function MenuLink({ Icon, label, href, isActive }) {
+  const router = useRouter();
+
   return (
     <a
-      href='#'
-      className='flex items-center p-4 hover:bg-gray-100 rounded-md text-gray-800'
+      onClick={() => router.push(href)}
+      className={`flex items-center p-4 hover:bg-gray-100 rounded-md text-gray-800 cursor-pointer ${
+        isActive ? 'shadow-lg bg-gray-100' : ''
+      }`}
     >
       <Icon className='text-blue-600' />
       <span className='ml-4'>{label}</span>

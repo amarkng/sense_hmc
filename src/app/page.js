@@ -4,8 +4,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Article from './components/Article';
 import ObatVitamin from './components/ObatVitamin';
-import Footer from './components/Footer';
 import ContactUs from './components/ContactUs';
+import Footer from './components/Footer';
 
 export default function Home() {
   return (

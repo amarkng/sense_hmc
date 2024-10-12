@@ -22,7 +22,7 @@ const generateDummyData = () => {
 
 export default function QueueMeetBox() {
   const [patients, setPatients] = useState([]);
-  const itemsPerPage = 8;
+  const itemsPerPage = 12;
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export default function QueueMeetBox() {
         <button
           onClick={handlePreviousPage}
           disabled={currentPage === 1}
-          className={`px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded-lg ${
+          className={`w-24 px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded-lg ${
             currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
           }`}
         >
@@ -90,7 +90,7 @@ export default function QueueMeetBox() {
         <button
           onClick={handleNextPage}
           disabled={currentPage === totalPages}
-          className={`px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded-lg ${
+          className={`w-24 px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded-lg ${
             currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''
           }`}
         >

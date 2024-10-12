@@ -21,7 +21,7 @@ export default function CircularChart() {
 
   return (
     <div
-      className='bg-white p-6 md:mt-10 rounded-lg  '
+      className='bg-white p-6 md:mt-2 rounded-lg  '
       style={{
         minHeight: '55vh',
         display: 'flex',
@@ -32,13 +32,13 @@ export default function CircularChart() {
     >
       <h2
         className='text-xl font-bold text-gray-800 mb-5'
-        style={{ marginTop: '-40px' }}
+        style={{ marginTop: '-25px' }}
       >
         Overview Pasien
       </h2>
       <div
         className='chart-container'
-        style={{ width: '100%', maxWidth: '600px', height: '300px' }}
+        style={{ width: '100%', maxWidth: '700px', height: '350px' }}
       >
         <ResponsiveContainer width='100%' height='100%'>
           <PieChart>
@@ -47,7 +47,7 @@ export default function CircularChart() {
               cx='50%'
               cy='50%'
               innerRadius='60%' // ukuran lingkaran
-              outerRadius='80%'
+              outerRadius='75%'
               startAngle={180}
               endAngle={-180} // semi-lingkaran
               paddingAngle={5}

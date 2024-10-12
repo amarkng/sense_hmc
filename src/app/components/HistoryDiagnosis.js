@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
-import { FaVideo } from 'react-icons/fa';
+import {
+  FaVideo,
+  FaVideoSlash,
+  FaMicrophoneSlash,
+  FaVolumeMute,
+  FaTimes,
+} from 'react-icons/fa';
 import Image from 'next/image';
 
 const generateDummyData = (numPatients) => {
   const names = [
     'John Doe',
-    'Jane Smith',
+    'Emily Kazuhara',
     'Michael Johnson',
     'Emily Davis',
     'James Brown',
@@ -35,6 +41,7 @@ const generateDummyData = (numPatients) => {
 export default function HistoryDiagnosis() {
   const itemsPerPage = 5;
   const [currentPage, setCurrentPage] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const dataDump = generateDummyData(12);
 
@@ -55,6 +62,14 @@ export default function HistoryDiagnosis() {
     }
   };
 
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className='bg-white p-6 rounded-lg shadow-md flex flex-col min-h-full'>
       <h2 className='text-xl font-semibold mb-4 text-black'>
@@ -65,19 +80,19 @@ export default function HistoryDiagnosis() {
         <table className='min-w-full table-auto'>
           <thead>
             <tr>
-              <th className='px-4 py-2 text-left text-sm font-semibold text-black'>
+              <th className='px-4 py-4 text-left text-sm font-semibold text-black'>
                 No.
               </th>
-              <th className='px-4 py-2 text-left text-sm font-semibold text-black'>
+              <th className='px-4 py-4 text-left text-sm font-semibold text-black'>
                 Nama Dokter
               </th>
-              <th className='px-4 py-2 text-left text-sm font-semibold text-black'>
+              <th className='px-4 py-4 text-left text-sm font-semibold text-black'>
                 ID Diagnosis
               </th>
-              <th className='px-4 py-2 text-left text-sm font-semibold text-black'>
+              <th className='px-4 py-4 text-left text-sm font-semibold text-black'>
                 Hasil Diagnosis AI
               </th>
-              <th className='px-4 py-2 text-left text-sm font-semibold text-black'>
+              <th className='px-4 py-4 text-left text-sm font-semibold text-black'>
                 Status
               </th>
             </tr>
@@ -85,31 +100,34 @@ export default function HistoryDiagnosis() {
           <tbody>
             {currentItems.map((entry, index) => (
               <tr key={entry.id} className='border-b'>
-                <td className='px-4 py-2 text-black'>
+                <td className='px-4 py-8 text-black'>
                   {indexOfFirstItem + index + 1}
                 </td>
-                <td className='px-4 py-2 text-black'>
+                <td className='px-4 py-8 text-black'>
                   <div className='flex items-center'>
                     <Image
                       src='/assets/images/placeholder1.jpg'
                       alt='avatar'
-                      className='w-10 h-10 rounded-full'
+                      className='w-12 h-12 rounded-full'
                       width={64}
                       height={64}
                     />
-                    <div className='ml-3'>
+                    <div className='ml-3 md:px-4'>
                       <p className='text-sm font-medium'>{entry.name}</p>
                       <p className='text-xs text-gray-500'>{entry.specialty}</p>
                     </div>
                   </div>
                 </td>
-                <td className='px-4 py-2 text-black'>{entry.diagId}</td>
-                <td className='px-4 py-2 text-black'>
+                <td className='px-4 py-8 text-black'>{entry.diagId}</td>
+                <td className='px-4 py-8 text-black'>
                   Lorem Ipsum dolor sit amet consectetur adipiscing elit
                 </td>
-                <td className='px-4 py-2'>
+                <td className='px-4 py-8'>
                   {entry.status === 'Join Meeting' ? (
-                    <button className='text-white bg-blue-500 p-2 rounded-lg text-sm flex items-center hover:bg-blue-700'>
+                    <button
+                      onClick={openModal}
+                      className='text-white bg-blue-500 p-2 rounded-lg text-sm flex items-center hover:bg-blue-700'
+                    >
                       <FaVideo className='mr-2' /> Join Meeting
                     </button>
                   ) : (
@@ -124,12 +142,11 @@ export default function HistoryDiagnosis() {
         </table>
       </div>
 
-      {/* Pagination */}
       <div className='flex justify-between items-center'>
         <button
           onClick={handlePreviousPage}
           disabled={currentPage === 1}
-          className={`px-4 py-2 text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700 rounded-lg ${
+          className={`min-w-[100px] px-4 py-2 text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700 rounded-lg ${
             currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
           }`}
         >
@@ -141,13 +158,52 @@ export default function HistoryDiagnosis() {
         <button
           onClick={handleNextPage}
           disabled={currentPage === totalPages}
-          className={`px-4 py-2 text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700 rounded-lg ${
+          className={`min-w-[100px] px-4 py-2 text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700 rounded-lg ${
             currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''
           }`}
         >
           Next
         </button>
       </div>
+
+      {isModalOpen && (
+        <div className='fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50'>
+          <div className='bg-white w-[90%] max-w-4xl rounded-lg shadow-lg p-6'>
+            <div className='bg-blue-600 text-white py-4 px-6 rounded-t-lg flex justify-between items-center'>
+              <h2 className='text-xl font-semibold'>Join Meeting</h2>
+              <button onClick={closeModal}>
+                <FaTimes className='text-xl' />
+              </button>
+            </div>
+
+            <div className='bg-pink-100 p-8 mt-6 rounded-lg flex flex-col items-center'>
+              <Image
+                src='/assets/images/placeholder1.jpg'
+                alt='avatar'
+                className='w-48 h-48 rounded-full'
+                width={96}
+                height={96}
+              />
+              <p className='text-lg font-medium mt-4'>Lala</p>
+            </div>
+
+            <div className='flex justify-center space-x-6 mt-6 mb-4'>
+              <button className='bg-red-500 hover:bg-red-600 p-4 rounded-full text-white text-2xl'>
+                <FaVideoSlash />
+              </button>
+              <button className='bg-gray-500 hover:bg-gray-600 p-4 rounded-full text-white text-2xl'>
+                <FaMicrophoneSlash />
+              </button>
+              <button className='bg-gray-500 hover:bg-gray-600 p-4 rounded-full text-white text-2xl'>
+                <FaVolumeMute />
+              </button>
+              <button className='bg-blue-500 hover:bg-blue-600  p-4 rounded-full text-white text-2xl'>
+                Join Meeting
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

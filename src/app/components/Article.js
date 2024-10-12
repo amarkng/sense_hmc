@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 export default function Article() {
   const articles = [
     {
@@ -33,7 +34,7 @@ export default function Article() {
         'Maecenas sed diam eget risus varius blandit sit amet non magna.',
       category: 'Technology',
       date: '30 Desember 2023',
-      imageUrl: '/images/article4.jpg',
+      imageUrl: '/assets/images/placeholder1.jpg',
     },
     {
       id: 5,
@@ -41,7 +42,7 @@ export default function Article() {
       description: 'Aenean lacinia bibendum nulla sed consectetur.',
       category: 'Environment',
       date: '5 November 2023',
-      imageUrl: '/images/article6.jpg',
+      imageUrl: '/assets/images/placeholder1.jpg',
     },
     {
       id: 5,
@@ -49,7 +50,7 @@ export default function Article() {
       description: 'Aenean lacinia bibendum nulla sed consectetur.',
       category: 'Environment',
       date: '5 November 2023',
-      imageUrl: '/images/article7.jpg',
+      imageUrl: '/assets/images/placeholder1.jpg',
     },
   ];
 
@@ -63,8 +64,8 @@ export default function Article() {
           Artikel Terbaru
         </h2>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8'>
-          {articles.slice(0, 3).map((article) => (
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8'>
+          {articles.slice(0, 4).map((article) => (
             <div
               key={article.id}
               className='bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow'
@@ -98,11 +99,11 @@ export default function Article() {
           ))}
         </div>
 
-        <div className='flex justify-center mt-10'>
+        <Link href='articleFull' className='flex justify-center mt-10'>
           <button className='bg-gray-800 text-white py-3 px-8 rounded-full text-sm sm:text-lg hover:bg-gray-900'>
             Read More
           </button>
-        </div>
+        </Link>
       </div>
     </section>
   );

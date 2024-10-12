@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 import dynamic from 'next/dynamic';
 
-import PatientBox from '../app/components/PatientBox';
-import VerificationBox from '../app/components/VerificationBox';
+import UpperBoxDoctor from '@/app/components/UpperBoxDoctor';
 import QueueMeetBox from '../app/components/QueueMeetBox';
 import NavbarDoc from '../app/components/NavbarDoc';
 
@@ -35,18 +34,14 @@ export default function DoctorDashboard() {
         </div>
 
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
-          <div className='lg:col-span-2 space-y-6'>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-              <PatientBox />
-              <VerificationBox />
-            </div>
-
+          <div className='lg:col-span-2 space-y-6 '>
+            <UpperBoxDoctor />
             <div className='bg-white p-6 rounded-lg shadow-lg'>
               <CircularChart />
             </div>
           </div>
 
-          <div className='space-y-6'>
+          <div className='space-y-6 '>
             <QueueMeetBox />
           </div>
         </div>
