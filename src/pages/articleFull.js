@@ -4,7 +4,7 @@ import Footer from '../app/components/Footer';
 import articlesData from '../app/dummyData/articlesData';
 import Image from 'next/image';
 
-export default function articleFull() {
+export default function ArticleFull() {
   const [currentPage, setCurrentPage] = useState(1);
   const [articlesPerPage, setArticlesPerPage] = useState(12);
   const totalPages = Math.ceil(articlesData.length / articlesPerPage);
