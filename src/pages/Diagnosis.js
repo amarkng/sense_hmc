@@ -27,10 +27,10 @@ export default function Diagnosis() {
   };
 
   return (
-    <div>
+    <div className='flex flex-col min-h-screen'>
       <Navbar />
 
-      <section className='py-16 bg-white text-center'>
+      <section className='flex-grow py-16 bg-white text-center'>
         <div className='max-w-4xl mx-auto px-4 lg:px-0'>
           <h1 className='text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-8'>
             Periksa Kesehatanmu dengan Prediksi AI Akurat!
