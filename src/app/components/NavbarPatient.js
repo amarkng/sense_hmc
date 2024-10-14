@@ -68,8 +68,8 @@ export default function NavbarPatient({ toggleSidebar, isSidebarOpen }) {
         <MenuLink
           Icon={FiClipboard}
           label='Diagnosis'
-          href='#Diagnosis'
-          isActive={isActive('/DiagnosisPatient')}
+          href='/DiagnosisP'
+          isActive={isActive('/DiagnosisP')}
         />
         <MenuLink
           Icon={FaCommentMedical}
