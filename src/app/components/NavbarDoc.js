@@ -67,8 +67,8 @@ export default function NavbarDoc({ toggleSidebar, isSidebarOpen }) {
         <MenuLink
           Icon={FaStethoscope}
           label='Verifikasi Diagnosis'
-          href='#verifikasi'
-          isActive={isActive('/verifikasi')}
+          href='/VerifikasiDiagnosis'
+          isActive={isActive('/VerifikasiDiagnosis')}
         />
         <MenuLink
           Icon={FaCommentMedical}
@@ -78,9 +78,9 @@ export default function NavbarDoc({ toggleSidebar, isSidebarOpen }) {
         />
         <MenuLink
           Icon={FaFileAlt}
-          label='Keluhan'
-          href='#keluhan'
-          isActive={isActive('/keluhan')}
+          label='History'
+          href='#History'
+          isActive={isActive('/History')}
         />
       </nav>
 
@@ -92,7 +92,7 @@ export default function NavbarDoc({ toggleSidebar, isSidebarOpen }) {
           }`}
         >
           <FaCog className='text-blue-600' />
-          <span className='ml-4'>Pengaturan</span>
+          <span className='ml-2'>Pengaturan</span>
         </div>
         <button
           onClick={handleLogout}

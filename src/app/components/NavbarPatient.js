@@ -9,6 +9,7 @@ import {
   FaFileAlt,
   FaBell,
 } from 'react-icons/fa';
+import { FiClipboard } from 'react-icons/fi';
 
 export default function NavbarPatient({ toggleSidebar, isSidebarOpen }) {
   const router = useRouter();
@@ -65,16 +66,16 @@ export default function NavbarPatient({ toggleSidebar, isSidebarOpen }) {
           isActive={isActive('/patient-dashboard')}
         />
         <MenuLink
+          Icon={FiClipboard}
+          label='Diagnosis'
+          href='#Diagnosis'
+          isActive={isActive('/DiagnosisPatient')}
+        />
+        <MenuLink
           Icon={FaCommentMedical}
           label='Konsultasi'
           href='#Konsultasi'
           isActive={isActive('/Konsultasi')}
-        />
-        <MenuLink
-          Icon={FaFileAlt}
-          label='Keluhan'
-          href='#Keluhan'
-          isActive={isActive('/Keluhan')}
         />
       </nav>
 

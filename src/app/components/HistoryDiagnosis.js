@@ -5,6 +5,8 @@ import {
   FaMicrophoneSlash,
   FaVolumeMute,
   FaTimes,
+  FaChevronLeft,
+  FaChevronRight,
 } from 'react-icons/fa';
 import Image from 'next/image';
 
@@ -50,15 +52,15 @@ export default function HistoryDiagnosis() {
   const currentItems = dataDump.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(dataDump.length / itemsPerPage);
 
-  const handlePreviousPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-  const handleNextPage = () => {
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const goToNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
+    }
+  };
+  const goToPreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
     }
   };
 
@@ -142,27 +144,60 @@ export default function HistoryDiagnosis() {
         </table>
       </div>
 
-      <div className='flex justify-between items-center'>
+      <div className='flex justify-between items-center mt-4'>
         <button
-          onClick={handlePreviousPage}
+          onClick={goToPreviousPage}
           disabled={currentPage === 1}
-          className={`min-w-[100px] px-4 py-2 text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700 rounded-lg ${
-            currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+          className={`py-1 px-3 text-gray-600 bg-white border border-gray-300 rounded-md hover:bg-gray-200 flex items-center sm:text-sm ${
+            currentPage === 1 ? 'cursor-not-allowed opacity-50' : ''
           }`}
         >
-          Previous
+          <FaChevronLeft className='mr-2' /> Previous
         </button>
-        <span className='text-sm font-semibold text-gray-700'>
-          Page {currentPage} of {totalPages}
-        </span>
+
+        <ul className='flex space-x-1 sm:space-x-2 overflow-x-auto'>
+          {[...Array(totalPages)].map((_, index) => {
+            if (
+              index + 1 === currentPage ||
+              (index + 1 >= currentPage - 1 && index + 1 <= currentPage + 1)
+            ) {
+              return (
+                <li key={index}>
+                  <button
+                    onClick={() => paginate(index + 1)}
+                    className={`py-1 px-3 rounded-md border text-xs sm:text-sm ${
+                      currentPage === index + 1
+                        ? 'bg-blue-500 text-white'
+                        : 'bg-white text-gray-700'
+                    } hover:bg-blue-500 hover:text-white transition`}
+                  >
+                    {index + 1}
+                  </button>
+                </li>
+              );
+            }
+            if (
+              index + 1 === currentPage - 2 ||
+              index + 1 === currentPage + 2
+            ) {
+              return (
+                <li key={index} className='text-xs sm:text-sm'>
+                  ...
+                </li>
+              );
+            }
+            return null;
+          })}
+        </ul>
+
         <button
-          onClick={handleNextPage}
+          onClick={goToNextPage}
           disabled={currentPage === totalPages}
-          className={`min-w-[100px] px-4 py-2 text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700 rounded-lg ${
-            currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''
+          className={`py-1 px-3 text-gray-600 bg-white border border-gray-300 rounded-md hover:bg-gray-200 flex items-center sm:text-sm ${
+            currentPage === totalPages ? 'cursor-not-allowed opacity-50' : ''
           }`}
         >
-          Next
+          Next <FaChevronRight className='ml-2' />
         </button>
       </div>
 

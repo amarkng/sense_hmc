@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { TbEyeSearch } from 'react-icons/tb';
 import Navbar from '../app/components/Navbar';
 import Footer from '../app/components/Footer';
 
@@ -12,7 +13,19 @@ export default function Diagnosis() {
     'Sakit Kepala',
   ]);
 
+  const aiDiagnosis = {
+    namaPenyakit: 'Demam Berdarah',
+    gejala: [
+      'Demam tinggi',
+      'Sakit dada',
+      'Sulit bernapas',
+      'Tidak nafsu makan',
+    ],
+  };
+
   const [newSymptom, setNewSymptom] = useState('');
+  const [isAddSymptomModalOpen, setIsAddSymptomModalOpen] = useState(false);
+  const [isResultModalOpen, setIsResultModalOpen] = useState(false);
 
   const handleAddSymptom = (e) => {
     e.preventDefault();
@@ -60,14 +73,18 @@ export default function Diagnosis() {
               ))}
 
               <div
-                onClick={handleAddSymptom}
                 className='border border-blue-400 text-blue-400 px-6 py-2 rounded-full cursor-pointer hover:bg-blue-100 transition'
+                onClick={() => setIsAddSymptomModalOpen(true)}
               >
                 + Tambah Gejala
               </div>
             </div>
 
-            <button className='bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition'>
+            <button
+              className='bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition'
+              onClick={() => setIsResultModalOpen(true)}
+            >
+              <TbEyeSearch className='inline-block mr-2' />
               Lihat Hasil Gejala
             </button>
           </div>
@@ -75,6 +92,67 @@ export default function Diagnosis() {
       </section>
 
       <Footer />
+
+      {isAddSymptomModalOpen && (
+        <div className='fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50'>
+          <div className='bg-white rounded-lg w-11/12 sm:w-2/3 md:w-1/2 lg:w-1/3 p-6'>
+            <div className='flex justify-between items-center mb-4'>
+              <h2 className='text-xl font-bold text-blue-600'>Tambah Gejala</h2>
+              <button
+                onClick={() => setIsAddSymptomModalOpen(false)}
+                className='text-gray-600'
+              >
+                ✕
+              </button>
+            </div>
+            <input
+              type='text'
+              placeholder='Cari gejala penyakit...'
+              className='w-full p-4 mb-4 border border-gray-300 rounded-lg text-black'
+              value={newSymptom}
+              onChange={(e) => setNewSymptom(e.target.value)}
+            />
+            <button
+              onClick={handleAddSymptom}
+              className='bg-blue-500 text-white px-4 py-2 rounded-lg w-full hover:bg-blue-700'
+            >
+              Tambah Gejala
+            </button>
+          </div>
+        </div>
+      )}
+
+      {isResultModalOpen && (
+        <div className='fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50'>
+          <div className='bg-white rounded-lg w-11/12 sm:w-2/3 md:w-1/2 lg:w-1/3 p-6'>
+            <div className='flex justify-between items-center mb-4'>
+              <h2 className='text-xl font-bold text-blue-600'>
+                Hasil Diagnosis AI
+              </h2>
+              <button
+                onClick={() => setIsResultModalOpen(false)}
+                className='text-gray-600'
+              >
+                ✕
+              </button>
+            </div>
+            <div className='text-left'>
+              <p className=' text-lg text-black'>Nama Penyakit:</p>
+              <p className='font-bold text-xl text-black mb-4'>
+                {aiDiagnosis.namaPenyakit}
+              </p>
+              <p className='font-semibold text-lg text-black'>Gejala:</p>
+              <ul className='list-disc list-inside'>
+                {aiDiagnosis.gejala.map((gejala, index) => (
+                  <li key={index} className='text-black'>
+                    {gejala}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
