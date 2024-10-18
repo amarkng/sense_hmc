@@ -1,4 +1,5 @@
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -25,8 +26,9 @@ export default function Footer() {
             </a>
             <a
               href='https://www.instagram.com/humicengineering/'
-              className='p-3 rounded-md border-2 border-white text-white hover:text-pink-500 hover:bg-white transition  '
+              className='p-3 rounded-md border-2 border-white text-white hover:text-pink-500 hover:bg-white transition'
               target='_blank'
+              rel='noopener noreferrer'
             >
               <FaInstagram size={20} />
             </a>
@@ -43,24 +45,33 @@ export default function Footer() {
           <h3 className='text-xl sm:text-2xl font-semibold'>Quick Links</h3>
           <ul className='mt-4 space-y-2 text-sm sm:text-base text-gray-300'>
             <li>
-              <a href='#' className='hover:text-gray-100 transition'>
+              <Link href='#' className='hover:text-gray-100 transition'>
                 Tentang Kami
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='/articleFull' className='hover:text-gray-100 transition'>
+              <Link
+                href='/articleFull'
+                className='hover:text-gray-100 transition'
+              >
                 Artikel
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#ObatVitamin' className='hover:text-gray-100 transition'>
+              <Link
+                href='#ObatVitamin'
+                className='hover:text-gray-100 transition'
+              >
                 Obat & Vitamin
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='/Diagnosis' className='hover:text-gray-100 transition'>
+              <Link
+                href='/Diagnosis'
+                className='hover:text-gray-100 transition'
+              >
                 Diagnosis
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
