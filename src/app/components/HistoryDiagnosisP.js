@@ -143,15 +143,15 @@ export default function HistoryDiagnosisP() {
                 <td className='px-4 py-4 text-black'>{item.doctorDiagnosis}</td>
                 <td className='px-4 py-4'>
                   {item.status === 'Verified' ? (
-                    <span className='bg-green-100 text-green-600 px-4 py-2 rounded-full'>
-                      Verified
+                    <span className='bg-green-600 text-white px-4 py-2 rounded-lg'>
+                      Verifikasi
                     </span>
                   ) : item.status === 'Ditolak' ? (
-                    <span className='bg-red-100 text-red-600 px-4 py-2 rounded-full'>
+                    <span className='bg-red-600 text-white px-4 py-2 rounded-lg'>
                       Ditolak
                     </span>
                   ) : (
-                    <span className='bg-yellow-100 text-yellow-600 px-4 py-2 rounded-full'>
+                    <span className=' bg-white text-black px-4 py-2 rounded-lg shadow-md'>
                       Menunggu
                     </span>
                   )}

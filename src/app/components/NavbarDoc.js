@@ -73,8 +73,8 @@ export default function NavbarDoc({ toggleSidebar, isSidebarOpen }) {
         <MenuLink
           Icon={FaCommentMedical}
           label='Konsultasi'
-          href='#konsultasi'
-          isActive={isActive('/konsultasi')}
+          href='/KonsultasiDokter'
+          isActive={isActive('/KonsultasiDokter')}
         />
         <MenuLink
           Icon={FaFileAlt}

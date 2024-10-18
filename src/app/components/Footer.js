@@ -24,8 +24,9 @@ export default function Footer() {
               <FaTwitter size={20} />
             </a>
             <a
-              href='#'
-              className='p-3 rounded-md border-2 border-white text-white hover:text-pink-500 hover:bg-white transition'
+              href='https://www.instagram.com/humicengineering/'
+              className='p-3 rounded-md border-2 border-white text-white hover:text-pink-500 hover:bg-white transition  '
+              target='_blank'
             >
               <FaInstagram size={20} />
             </a>
@@ -47,17 +48,17 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href='#' className='hover:text-gray-100 transition'>
+              <a href='/articleFull' className='hover:text-gray-100 transition'>
                 Artikel
               </a>
             </li>
             <li>
-              <a href='#' className='hover:text-gray-100 transition'>
+              <a href='#ObatVitamin' className='hover:text-gray-100 transition'>
                 Obat & Vitamin
               </a>
             </li>
             <li>
-              <a href='#' className='hover:text-gray-100 transition'>
+              <a href='/Diagnosis' className='hover:text-gray-100 transition'>
                 Diagnosis
               </a>
             </li>
@@ -73,7 +74,11 @@ export default function Footer() {
             </li>
             <li className='flex items-start space-x-2'>
               <span>📍</span>
-              <span>Jl. Telekomunikasi, Bandung, Indonesia</span>
+              <span>
+                Jl. Telekomunikasi. 1, Terusan Buahbatu - Bojongsoang, Telkom
+                University, Sukapura, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa
+                Barat 40257
+              </span>
             </li>
             <li className='flex items-center space-x-2'>
               <span>📞</span>

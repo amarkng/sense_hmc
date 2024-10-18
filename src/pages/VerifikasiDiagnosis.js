@@ -22,7 +22,7 @@ export default function VerifikasiDiagnosis() {
     setIsModalOpen(!isModalOpen);
   };
 
-  const itemsPerPage = 5;
+  const itemsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
 
   const dataPasien = [
@@ -50,7 +50,7 @@ export default function VerifikasiDiagnosis() {
         'Sakit tenggorokan',
         'Kelelahan',
       ],
-      diagnosisAI: 'Infeksi Saluran Pernapasan Atas (ISPA)',
+      diagnosisAI: 'Infeksi Saluran Pernapasan',
     },
     {
       id: 3,
@@ -58,7 +58,7 @@ export default function VerifikasiDiagnosis() {
       diagnosisId: 24,
       hasilDokter: 'Lorem Ipsum dolor sit..',
       keluhan: ['Pusing', 'Mual', 'Gangguan pencernaan', 'Kelelahan'],
-      diagnosisAI: 'Gastritis (Radang Lambung)',
+      diagnosisAI: 'Radang Lambung',
     },
     {
       id: 4,
@@ -97,7 +97,7 @@ export default function VerifikasiDiagnosis() {
         'Sakit tenggorokan',
         'Kelelahan',
       ],
-      diagnosisAI: 'Infeksi Saluran Pernapasan Atas (ISPA)',
+      diagnosisAI: 'Infeksi Saluran Pernapasan',
     },
     {
       id: 7,
@@ -114,6 +114,32 @@ export default function VerifikasiDiagnosis() {
     },
     {
       id: 8,
+      nama: 'Candice Wu',
+      diagnosisId: 26,
+      hasilDokter: 'Lorem Ipsum dolor sit..',
+      keluhan: [
+        'Demam tinggi',
+        'Sakit dada',
+        'Sulit bernapas',
+        'Tidak nafsu makan',
+      ],
+      diagnosisAI: 'Radang Paru-Paru',
+    },
+    {
+      id: 9,
+      nama: 'Candice Wu',
+      diagnosisId: 26,
+      hasilDokter: 'Lorem Ipsum dolor sit..',
+      keluhan: [
+        'Demam tinggi',
+        'Sakit dada',
+        'Sulit bernapas',
+        'Tidak nafsu makan',
+      ],
+      diagnosisAI: 'Radang Paru-Paru',
+    },
+    {
+      id: 10,
       nama: 'Candice Wu',
       diagnosisId: 26,
       hasilDokter: 'Lorem Ipsum dolor sit..',
@@ -175,7 +201,7 @@ export default function VerifikasiDiagnosis() {
             Daftar Verifikasi Pasien
           </h2>
 
-          <div className='overflow-x-auto mb-auto'>
+          <div className='overflow-x-auto mb-auto min-h-[350px]'>
             <table className='min-w-full table-auto'>
               <thead>
                 <tr>
@@ -219,7 +245,7 @@ export default function VerifikasiDiagnosis() {
                     </td>
                     <td className='px-2 md:px-4 py-8 text-center'>
                       <button
-                        className='text-white bg-blue-500 p-2 rounded-lg text-sm hover:bg-blue-700'
+                        className='text-white min-w-[80px] sm:min-w-[90px] bg-blue-500 p-2 rounded-lg text-sm hover:bg-blue-700'
                         onClick={() => toggleModal(pasien)}
                       >
                         Details
@@ -231,13 +257,14 @@ export default function VerifikasiDiagnosis() {
             </table>
           </div>
 
-          <div className='flex justify-between items-center mt-4'>
+          <div className='flex justify-between items-center mt-4 overflow-x-auto'>
             <button
               onClick={goToPreviousPage}
               disabled={currentPage === 1}
               className={`py-1 px-3 text-gray-600 bg-white border border-gray-300 rounded-md hover:bg-gray-200 flex items-center sm:text-sm ${
                 currentPage === 1 ? 'cursor-not-allowed opacity-50' : ''
               }`}
+              style={{ flexShrink: 0 }}
             >
               <FaChevronLeft className='mr-2' /> Previous
             </button>
@@ -285,6 +312,7 @@ export default function VerifikasiDiagnosis() {
                   ? 'cursor-not-allowed opacity-50'
                   : ''
               }`}
+              style={{ flexShrink: 0 }}
             >
               Next <FaChevronRight className='ml-2' />
             </button>
@@ -294,105 +322,100 @@ export default function VerifikasiDiagnosis() {
         {/* Modal */}
         {isModalOpen && (
           <div className='fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-50 z-50'>
-            <div className='bg-white rounded-lg p-4 sm:p-6 md:p-8 shadow-lg w-10/12 sm:w-5/6 md:w-2/3 lg:w-1/3 max-h-screen overflow-y-auto'>
-              {' '}
-              <div className='flex justify-between items-center mb-6'>
-                <h2 className='text-lg sm:text-xl font-bold text-blue-600'>
+            <div className='bg-white rounded-xl shadow-lg w-11/12 sm:w-4/6 md:w-3/5 lg:w-2/4 max-h-screen overflow-y-auto'>
+              <div className='relative bg-blue-600 rounded-t-xl p-4 flex justify-center items-center'>
+                <h2 className='text-lg sm:text-xl font-bold text-white'>
                   Detail Pasien
                 </h2>
                 <button
                   onClick={() => toggleModal(null)}
-                  className='text-gray-600 hover:text-gray-900'
+                  className='absolute right-4 text-white hover:text-gray-200'
                 >
                   <FaTimes />
                 </button>
               </div>
-              {selectedPatient && (
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-                  {' '}
-                  {/* Left Side */}
-                  <div>
-                    <div className='mb-4'>
-                      <label className='block font-semibold text-black mb-2'>
-                        Nama
-                      </label>
-                      <input
-                        type='text'
-                        className='border border-gray-300 rounded-md p-3 w-full text-black'
-                        value={selectedPatient.nama}
-                        readOnly
-                      />
-                    </div>
-                    <div className='mb-4'>
-                      <label className='block font-semibold text-black mb-2'>
-                        Keluhan
-                      </label>
-                      <textarea
-                        className='border border-gray-300 rounded-md p-3 w-full text-black h-32 resize-none'
-                        value={
-                          Array.isArray(selectedPatient.keluhan)
-                            ? selectedPatient.keluhan.join('\n')
-                            : 'No complaints'
-                        }
-                        readOnly
-                      />
-                    </div>
-                    <div className='mb-4'>
-                      <label className='block font-semibold text-black mb-2'>
-                        Status
-                      </label>
-                      <select className='border border-gray-300 rounded-md p-3 w-full text-black'>
-                        <option>Pilih Status</option>
-                        <option>Confirmed</option>
-                        <option>Pending</option>
-                        <option>Rejected</option>
-                      </select>
-                    </div>
-                  </div>
-                  {/* Right Side */}
-                  <div>
-                    <div className='mb-4'>
-                      <label className='block font-semibold text-black mb-2'>
-                        ID Diagnosis
-                      </label>
-                      <input
-                        type='text'
-                        className='border border-gray-300 rounded-md p-3 w-full text-black'
-                        value={selectedPatient.diagnosisId}
-                        readOnly
-                      />
-                    </div>
-                    <div className='mb-4'>
-                      <label className='block font-semibold text-black mb-2'>
-                        Diagnosis AI
-                      </label>
-                      <input
-                        type='text'
-                        className='border border-gray-300 rounded-md p-3 w-full text-black'
-                        value={selectedPatient.diagnosisAI}
-                        readOnly
-                      />
+
+              {/* Konten Modal */}
+              <div className='p-6'>
+                {selectedPatient && (
+                  <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                    {/* Kolom kiri */}
+                    <div>
+                      <div className='mb-4'>
+                        <label className='block font-semibold text-black mb-2 justify-'>
+                          Nama Pasien
+                        </label>
+                        <input
+                          type='text'
+                          className='border border-gray-300 rounded-md p-3 w-full text-black'
+                          value={selectedPatient.nama}
+                          readOnly
+                        />
+                      </div>
+                      <div className='mb-4'>
+                        <label className='block font-semibold text-black mb-2'>
+                          Keluhan
+                        </label>
+                        <textarea
+                          className='border border-gray-300 rounded-md p-3 w-full text-black h-32 resize-none'
+                          value={selectedPatient.keluhan.join('\n')}
+                          readOnly
+                        />
+                      </div>
+                      <div className='mb-4'>
+                        <label className='block font-semibold text-black mb-2'>
+                          Status
+                        </label>
+                        <select className='border border-gray-300 rounded-md p-3 w-full text-black'>
+                          <option>Pilih Status</option>
+                          <option>Confirmed</option>
+                          <option>Pending</option>
+                          <option>Rejected</option>
+                        </select>
+                      </div>
                     </div>
 
-                    <div className='mb-4'>
-                      <label className='block font-semibold text-black mb-2'>
-                        Diagnosis Dokter
-                      </label>
-                      <textarea
-                        className='border border-gray-300 rounded-md p-3 w-full text-black h-24 resize-none'
-                        placeholder='Tulisa hasil diagnosis dokter...'
-                      />
+                    {/* Kolom kanan */}
+                    <div>
+                      <div className='mb-4'>
+                        <label className='block font-semibold text-black mb-2'>
+                          ID Diagnosis
+                        </label>
+                        <input
+                          type='text'
+                          className='border border-gray-300 rounded-md p-3 w-full text-black'
+                          value={selectedPatient.diagnosisId}
+                          readOnly
+                        />
+                      </div>
+                      <div className='mb-4'>
+                        <label className='block font-semibold text-black mb-2'>
+                          Hasil Diagnosis AI
+                        </label>
+                        <input
+                          type='text'
+                          className='border border-gray-300 rounded-md p-3 w-full text-black'
+                          value={selectedPatient.diagnosisAI}
+                          readOnly
+                        />
+                      </div>
+                      <div className='mb-4'>
+                        <label className='block font-semibold text-black mb-2'>
+                          Diagnosis Dokter
+                        </label>
+                        <textarea
+                          className='border border-gray-300 rounded-md p-3 w-full text-black h-24 resize-none'
+                          placeholder='Tulisan hasil diagnosis dokter...'
+                        />
+                      </div>
                     </div>
                   </div>
+                )}
+                <div className='flex justify-center mt-6'>
+                  <button className='bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-700 text-base'>
+                    Submit
+                  </button>
                 </div>
-              )}
-              <div className='flex justify-center mt-6'>
-                <button
-                  className='bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-700 text-base'
-                  onClick={() => toggleModal(null)}
-                >
-                  Submit
-                </button>
               </div>
             </div>
           </div>

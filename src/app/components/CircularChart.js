@@ -52,7 +52,7 @@ export default function CircularChart() {
               endAngle={-180} // semi-lingkaran
               paddingAngle={5}
               dataKey='value'
-              cornerRadius={7} //ujung melengkung
+              cornerRadius={5} //ujung melengkung
             >
               {data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={entry.color} />
